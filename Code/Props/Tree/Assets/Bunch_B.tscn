@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn1emidduwh84"]
+
+[ext_resource type="Material" path="res://Materials/fjólublár.tres" id="1_owet3"]
+[ext_resource type="Material" uid="uid://btho6l3nrskns" path="res://Materials/fjólublár_ljós.tres" id="2_7vxsa"]
+
+[sub_resource type="CapsuleMesh" id="1"]
+
+[node name="Bunch_B" type="Node3D"]
+transform = Transform3D(0.445017, 0.0915437, 0.890831, -0.217205, 0.976092, 0.0081999, -0.868782, -0.197142, 0.454261, 0, 0, 0)
+
+[node name="Capsule2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.30029, -0.716371, -0.629793, 0.569549, 0.664304, -0.48406, 0.76514, -0.213339, 0.607492, 0.303646, 0.0624627, 0.607836)
+material_override = ExtResource("1_owet3")
+mesh = SubResource("1")
+
+[node name="Capsule4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.226059, 0.948837, 0.220466, -0.362376, 0.291995, -0.885112, -0.904202, 0.120196, 0.409844, -2.98023e-08, 0.746464, -0.27092)
+material_override = ExtResource("1_owet3")
+mesh = SubResource("1")
+
+[node name="Capsule3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.352136, 0, 0.935949, 0, 1, 0, -0.935949, 0, 0.352136, 9.53674e-07, 0.134218, 0)
+material_override = ExtResource("2_7vxsa")
+mesh = SubResource("1")

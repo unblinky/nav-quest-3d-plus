@@ -1,0 +1,283 @@
+[gd_scene load_steps=35 format=3 uid="uid://cfh4e4ciahs7g"]
+
+[ext_resource type="Material" uid="uid://cremhosmdwab6" path="res://Materials/grass.tres" id="1_1fw7r"]
+[ext_resource type="Material" uid="uid://dapdx5m2awl0l" path="res://Materials/græn.tres" id="1_d1ck4"]
+[ext_resource type="Material" uid="uid://blkxc505be1as" path="res://Materials/græn_border.tres" id="2_8n41t"]
+[ext_resource type="Material" uid="uid://c6aum8dkccsp1" path="res://Materials/rauður.tres" id="2_d3vra"]
+[ext_resource type="Material" uid="uid://dip52nc67mg5o" path="res://Materials/metalic.tres" id="2_iblup"]
+[ext_resource type="Material" uid="uid://b0rh43dsmld6n" path="res://Materials/metalic_purpy.tres" id="4_god2l"]
+[ext_resource type="Material" uid="uid://baxpjk6f5bdnt" path="res://Materials/gulur.tres" id="5_knip3"]
+[ext_resource type="Material" uid="uid://bh4hh8du5r7u4" path="res://Materials/appelsína.tres" id="6_dux77"]
+[ext_resource type="Texture2D" uid="uid://ckwaplnltpckr" path="res://Materials/elite_navigator.png" id="8_edpwp"]
+[ext_resource type="Material" uid="uid://djauw1yvarfrv" path="res://Materials/urtönd.tres" id="8_yrm8l"]
+[ext_resource type="Material" uid="uid://btho6l3nrskns" path="res://Materials/fjólublár_ljós.tres" id="9_jympn"]
+[ext_resource type="Material" uid="uid://5l003urkhec1" path="res://Materials/blár.tres" id="9_l3sj8"]
+[ext_resource type="PackedScene" uid="uid://dyne78x4qucaf" path="res://Props/Tree/Tree.tscn" id="11_of518"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jp52a"]
+sky_top_color = Color(0.839216, 0.415686, 0.776471, 1)
+sky_horizon_color = Color(0.731373, 0.664706, 0.721569, 1)
+ground_bottom_color = Color(0.0862745, 0.243137, 0.109804, 1)
+ground_horizon_color = Color(0.731373, 0.664706, 0.721569, 1)
+
+[sub_resource type="Sky" id="Sky_x2krp"]
+sky_material = SubResource("ProceduralSkyMaterial_jp52a")
+
+[sub_resource type="Environment" id="Environment_xwe7b"]
+background_mode = 2
+sky = SubResource("Sky_x2krp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rrc32"]
+albedo_color = Color(1, 0.776471, 0.411765, 1)
+roughness = 0.29
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_j5ylr"]
+top_radius = 10.0
+bottom_radius = 10.0
+height = 0.175
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_linfm"]
+top_radius = 5.0
+bottom_radius = 5.0
+height = 0.175
+
+[sub_resource type="TorusMesh" id="TorusMesh_hbc0f"]
+inner_radius = 4.642
+outer_radius = 5.946
+
+[sub_resource type="TorusMesh" id="TorusMesh_b1hdy"]
+inner_radius = 9.792
+outer_radius = 10.311
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8mtnq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_i311d"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l1vbj"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8vwwt"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_gcu01"]
+subdivide_width = 2
+subdivide_height = 2
+subdivide_depth = 3
+
+[sub_resource type="SphereMesh" id="SphereMesh_dx3oo"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_336v5"]
+top_radius = 1.15
+bottom_radius = 0.645
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dfe5r"]
+bottom_radius = 0.345
+height = 2.285
+
+[sub_resource type="SphereMesh" id="SphereMesh_jka4u"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_y0rh6"]
+top_radius = 0.0
+bottom_radius = 1.0
+rings = 5
+
+[sub_resource type="SphereMesh" id="SphereMesh_4yjmr"]
+radius = 1.0
+is_hemisphere = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_u71as"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 0.478
+
+[sub_resource type="TorusMesh" id="TorusMesh_xm3qj"]
+inner_radius = 0.491
+outer_radius = 1.16
+
+[node name="NavQuest3d" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.000262528, -0.775852, 0.630915, -0.314769, 0.598909, 0.736362, -0.949168, -0.198399, -0.244371, 0, -1.81472, 0)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xwe7b")
+
+[node name="Platforms" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0496225, 0)
+
+[node name="Central" type="MeshInstance3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18597, 0)
+material_override = SubResource("StandardMaterial3D_rrc32")
+mesh = SubResource("CylinderMesh_j5ylr")
+skeleton = NodePath("../..")
+
+[node name="North" type="MeshInstance3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.11959e-07, -0.088, -14)
+material_override = ExtResource("1_1fw7r")
+mesh = SubResource("CylinderMesh_linfm")
+skeleton = NodePath("../..")
+
+[node name="East" type="MeshInstance3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -0.088, 0)
+material_override = ExtResource("1_1fw7r")
+mesh = SubResource("CylinderMesh_linfm")
+skeleton = NodePath("../..")
+
+[node name="East2" type="MeshInstance3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -0.088, 0)
+material_override = ExtResource("2_8n41t")
+mesh = SubResource("TorusMesh_hbc0f")
+skeleton = NodePath("../..")
+
+[node name="East3" type="MeshInstance3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -0.088, 0)
+material_override = ExtResource("2_8n41t")
+mesh = SubResource("TorusMesh_hbc0f")
+skeleton = NodePath("../..")
+
+[node name="East4" type="MeshInstance3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.11959e-07, -0.088, 14)
+material_override = ExtResource("2_8n41t")
+mesh = SubResource("TorusMesh_hbc0f")
+skeleton = NodePath("../..")
+
+[node name="East5" type="MeshInstance3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.11959e-07, -0.088, -14)
+material_override = ExtResource("2_8n41t")
+mesh = SubResource("TorusMesh_hbc0f")
+skeleton = NodePath("../..")
+
+[node name="East6" type="MeshInstance3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.270692, 0)
+material_override = ExtResource("6_dux77")
+mesh = SubResource("TorusMesh_b1hdy")
+skeleton = NodePath("../..")
+
+[node name="South" type="MeshInstance3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11959e-07, -0.088, 14)
+material_override = ExtResource("1_1fw7r")
+mesh = SubResource("CylinderMesh_linfm")
+skeleton = NodePath("../..")
+
+[node name="West" type="MeshInstance3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -0.088, 0)
+material_override = ExtResource("1_1fw7r")
+mesh = SubResource("CylinderMesh_linfm")
+skeleton = NodePath("../..")
+
+[node name="Primatives" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CapsulePivot" type="Node3D" parent="Primatives"]
+
+[node name="Capsule" type="MeshInstance3D" parent="Primatives/CapsulePivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.45554)
+material_override = ExtResource("5_knip3")
+mesh = SubResource("CapsuleMesh_8mtnq")
+
+[node name="CubePivot" type="Node3D" parent="Primatives"]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 0, 0, 0)
+
+[node name="Cube" type="MeshInstance3D" parent="Primatives/CubePivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.15256e-07, 0, 5.45554)
+material_override = ExtResource("1_d1ck4")
+mesh = SubResource("BoxMesh_i311d")
+
+[node name="CylinderPivot" type="Node3D" parent="Primatives"]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 0, 0, 0)
+
+[node name="Cylinder" type="MeshInstance3D" parent="Primatives/CylinderPivot"]
+transform = Transform3D(0.99, 0, 0, 0, 0.99, 0, 0, 0, 0.99, 4.76837e-07, 0.551314, 5.47099)
+material_override = ExtResource("8_yrm8l")
+mesh = SubResource("CylinderMesh_l1vbj")
+
+[node name="PlanePivot" type="Node3D" parent="Primatives"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Plane" type="MeshInstance3D" parent="Primatives/PlanePivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.11959e-07, 0, 5.45554)
+material_override = ExtResource("9_l3sj8")
+mesh = SubResource("PlaneMesh_8vwwt")
+
+[node name="PrismPivot" type="Node3D" parent="Primatives"]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 0, 0, 0)
+
+[node name="Prism" type="MeshInstance3D" parent="Primatives/PrismPivot"]
+transform = Transform3D(-1, -3.55271e-15, -5.96046e-08, -5.37318e-16, -1, 8.74229e-08, -5.96046e-08, 8.74228e-08, 1, -7.15256e-07, -1.19209e-07, 5.45554)
+material_override = ExtResource("9_jympn")
+mesh = SubResource("PrismMesh_gcu01")
+
+[node name="SpherePivot" type="Node3D" parent="Primatives"]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 0, 0)
+
+[node name="Sphere" type="MeshInstance3D" parent="Primatives/SpherePivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15256e-07, 0, 5.45554)
+material_override = ExtResource("2_d3vra")
+mesh = SubResource("SphereMesh_dx3oo")
+
+[node name="Top" type="MeshInstance3D" parent="Primatives"]
+transform = Transform3D(3.69355, 0, 0, 0, 1.25928, 0, 0, 0, 3.69355, 0, -2.50221, 0)
+material_override = ExtResource("2_d3vra")
+mesh = SubResource("CylinderMesh_336v5")
+
+[node name="Tower" type="MeshInstance3D" parent="Primatives/Top"]
+transform = Transform3D(0.881833, 0, 0, 0, 4.16667, 0, 0, 0, 0.881833, 0, -5.43083, 0)
+material_override = ExtResource("8_yrm8l")
+mesh = SubResource("CylinderMesh_dfe5r")
+
+[node name="Sprite3D" type="Sprite3D" parent="Primatives"]
+transform = Transform3D(0.030229, 0, 0, 0, -1.32135e-09, 0.0201527, 0, -0.030229, -8.80901e-10, 15.0758, -0.0872903, -0.798098)
+texture = ExtResource("8_edpwp")
+
+[node name="Globe" type="MeshInstance3D" parent="Primatives"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63151, 0)
+material_override = ExtResource("2_iblup")
+mesh = SubResource("SphereMesh_jka4u")
+skeleton = NodePath("../..")
+
+[node name="Up" type="MeshInstance3D" parent="Primatives"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00617599, 0)
+material_override = ExtResource("6_dux77")
+mesh = SubResource("CylinderMesh_y0rh6")
+skeleton = NodePath("../..")
+
+[node name="Down" type="MeshInstance3D" parent="Primatives"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 3.34572, 0)
+material_override = ExtResource("4_god2l")
+mesh = SubResource("CylinderMesh_y0rh6")
+skeleton = NodePath("../..")
+
+[node name="Cap" type="MeshInstance3D" parent="Primatives"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.19954, 0)
+material_override = ExtResource("4_god2l")
+mesh = SubResource("SphereMesh_4yjmr")
+skeleton = NodePath("../..")
+
+[node name="Cap2" type="MeshInstance3D" parent="Primatives"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.78127, 0)
+material_override = ExtResource("4_god2l")
+mesh = SubResource("CylinderMesh_u71as")
+skeleton = NodePath("../..")
+
+[node name="Donut" type="MeshInstance3D" parent="Primatives"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, -3.82137e-15, 4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -6.79442e-08, 7.53716, 2.96993e-15)
+material_override = ExtResource("1_d1ck4")
+mesh = SubResource("TorusMesh_xm3qj")
+skeleton = NodePath("../..")
+
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="Tree" parent="Trees" instance=ExtResource("11_of518")]
+transform = Transform3D(0.102738, 0, 0.195264, 0, 0.220642, 0, -0.195264, 0, 0.102738, 15.042, 0.463333, -0.767819)
+
+[node name="Tree5" parent="Trees" instance=ExtResource("11_of518")]
+transform = Transform3D(0.369843, 0, 0, 0, 0.369843, 0, 0, 0, 0.369843, 13.4497, 0.728436, 1.94238)
+
+[node name="Tree2" parent="Trees" instance=ExtResource("11_of518")]
+transform = Transform3D(-0.146947, 0, -0.420038, 0, 0.445, 0, 0.420038, 0, -0.146947, 0.43171, 0.863741, -14.8212)
+
+[node name="Tree3" parent="Trees" instance=ExtResource("11_of518")]
+transform = Transform3D(0.254231, 0, -0.428958, 0, 0.498636, 0, 0.428958, 0, 0.254231, -14.3734, 0.982108, 0.433037)
+
+[node name="Tree4" parent="Trees" instance=ExtResource("11_of518")]
+transform = Transform3D(0.0869703, 0, -0.29755, 0, 0.31, 0, 0.29755, 0, 0.0869703, 0.210633, 0.596832, 14.4782)

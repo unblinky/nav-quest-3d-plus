@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://xg4j4r5qfqbq"]
+
+[ext_resource type="PackedScene" uid="uid://cfh4e4ciahs7g" path="res://Scenes/NavQuest3D.tscn" id="1_ffnio"]
+
+[node name="Main" type="Node" unique_id=869809111]
+
+[node name="NavQuest3D" parent="." unique_id=1663047302 instance=ExtResource("1_ffnio")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.279589, 0)
